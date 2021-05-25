@@ -9,6 +9,6 @@ COPY . .
 WORKDIR /root/utz
 RUN make install && rm -rf aut
 WORKDIR /root
-#RUN make out/chronos && make install
-#RUN utz test
+RUN make out/chronos && make install
+RUN utz test
 CMD ["bash"]
