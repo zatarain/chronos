@@ -3,6 +3,14 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <iomanip>
+#include <sstream>
+#include <unordered_map>
+#include <vector>
+#include "common/text.hpp"
+#include "common/parser.hpp"
+
+using hashmap = std::unordered_map<std::string, std::string>;
 
 /**
  * Entry point of the application.
