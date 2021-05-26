@@ -1,11 +1,9 @@
 #include "parser.hpp"
 
-void chronos::check(const std::string& field, const std::string& value) {
-	if (value.size() != 0) return;
-
-	std::stringstream message;
-	message << "Error: The field '" << field << "' is empty!";
-	throw message.str();
+void chronos::check_not_empty(const std::string& value) {
+	if (value.size() == 0) {
+		throw std::invalid_argument("Error: The field '%s' is empty!");
+	}
 }
 
 std::string chronos::sequence(int begin, int end, int step) {
@@ -42,7 +40,7 @@ std::string chronos::fixed(std::smatch& matches, int begin, int end) {
 	return matches.str();
 }
 
-std::string chronos::expand(const std::string& field, const std::string& value, int begin, int end) {
+std::string chronos::expand(const std::string& value, int begin, int end) {
 	for (auto& [pattern, callback]: patterns) {
 		std::regex expression(pattern);
 		std::smatch matches;
@@ -51,7 +49,5 @@ std::string chronos::expand(const std::string& field, const std::string& value, 
 		}
 	}
 
-	std::stringstream message;
-	message << "Error: Invalid value for field '" << field << "' we found '" << value << "'!";
-	throw message.str();
+	throw std::invalid_argument("Error: Invalid value for field '%s' we found '%s'!");
 }

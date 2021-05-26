@@ -3,10 +3,12 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <cstdio>
 #include <iomanip>
 #include <sstream>
 #include <unordered_map>
 #include <vector>
+#include <stdexcept>
 #include "common/text.hpp"
 #include "common/parser.hpp"
 

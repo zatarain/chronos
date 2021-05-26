@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include <vector>
 #include <regex>
+#include <stdexcept>
 
 namespace chronos {
 	/**
@@ -29,8 +30,12 @@ namespace chronos {
 
 	/**
 	 *	Checks whether the field is empty, if so throws an exception. 
+	 *	
+	 *  @param const std::string& Value to check.
+	 *  @return void
+	 *  @throws std::invalid_argument
 	 */
-	void check(const std::string&, const std::string&);
+	void check_not_empty(const std::string&);
 
 	/**
 	 * Generates a sequence in the interval [begin, end) doing steps.
@@ -116,13 +121,13 @@ namespace chronos {
 	/**
 	 * Expands a numeric cron-expression depending of the pattern matching.
 	 * 
-	 * @param const std::string&	Field name.
 	 * @param const std::string&	Field value from the user input.
 	 * @param int					First valid value for the field (normally 0 or 1).
 	 * @param int					Size of maximun range of the field (i.e. 60 for minutes).
 	 * @return std::string			An expanding string representing the expression.
+	 * @throws std::invalid_argument
 	 */
-	std::string expand(const std::string&, const std::string&, int, int);
+	std::string expand(const std::string&, int, int);
 }
 
 #endif // __PARSER_HEADER__
