@@ -29,7 +29,7 @@ std::string chronos::each(std::smatch& matches, int begin, int end) {
 std::string chronos::range(std::smatch& matches, int begin, int end) {
 	int start = std::stoi(matches[1].str());
 	int finish = std::stoi(matches[2].str());
-	return sequence(start, finish + begin);
+	return sequence(start, finish + 1);
 }
 
 std::string chronos::list(std::smatch& matches, int begin, int end) {
