@@ -29,13 +29,24 @@ namespace chronos {
 	};
 
 	/**
-	 *	Checks whether the field is empty, if so throws an exception. 
+	 *	Checks whether a value is empty, if so throws an exception. 
 	 *	
 	 *  @param const std::string& Value to check.
 	 *  @return void
 	 *  @throws std::invalid_argument
 	 */
 	void check_not_empty(const std::string&);
+
+	/**
+	 *	Checks whether value is out of range, if so throws an exception. 
+	 *	
+	 *  @param int Value to check.
+	 *  @param int Begin of the range.
+	 *  @param int Size of the range.
+	 *  @return void
+	 *  @throws std::out_of_range
+	 */
+	void check_range(int, int, int);
 
 	/**
 	 * Generates a sequence in the interval [begin, end) doing steps.
@@ -54,7 +65,6 @@ namespace chronos {
 	 * @param int			First valid value for the field (normally 0 or 1).
 	 * @param int			Size of maximun range of the field (i.e. 60 for minutes).
 	 * @return std::string	An expanding string representing the expression.
-	 * @throws std::out_of_range
 	 */
 	std::string all(std::smatch&, int, int);
 
@@ -65,7 +75,7 @@ namespace chronos {
 	 * @param int			First valid value for the field (normally 0 or 1).
 	 * @param int			Size of maximun range of the field (i.e. 60 for minutes).
 	 * @return std::string	An expanding string representing the expression.
-	 * @throws std::out_of_range
+	 * @throws std::invalid_argument
 	 */
 	std::string each(std::smatch&, int, int);
 
