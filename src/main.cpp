@@ -36,7 +36,7 @@ int main(int argc, char const *argv[]) {
 
 	// Print all the fields in the order as they appear in the configuration vector (chronos::fields).
 	for (auto& [field, begin, end]: chronos::fields) {
-		std::cout << std::setw(14) << std::left << std::setfill(' ') 
+		std::cout << std::setw(chronos::width) << std::left << std::setfill(' ') 
 			<< field << table[field] << std::endl;
 	}
 

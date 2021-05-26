@@ -11,6 +11,11 @@
 
 namespace chronos {
 	/**
+	 * Width for each field name at the output. 
+	 */
+	inline const int width = 14;
+
+	/**
 	 *	Configuration vector of tuples with field names, first value and range size.
 	 */
 	inline const std::vector<std::tuple<std::string, int, int>> fields{
