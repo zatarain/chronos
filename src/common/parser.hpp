@@ -11,7 +11,7 @@
 
 namespace chronos {
 	/**
-	 *	Configuration vector of tuples with field names, begins and ends.
+	 *	Configuration vector of tuples with field names, first value and range size.
 	 */
 	inline const std::vector<std::tuple<std::string, int, int>> fields{
 		{"minute", 0, 60},
