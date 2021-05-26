@@ -41,12 +41,15 @@ This section aims to briefly describe the desing of the solution, description of
    3. Expand the expression according with the classification, otherwise report an error
 
 ## 2.2 Values for the fields
+The value for all time fields must be quasi-numeric values.
 * **minute** can take integer values in the interval `[0,60)`
 * **hour** can take integer values in the interval `[0,24)`
 * **day of month** can take integer values in the interval `[1,31]`
 * **month** can take integer values in the interval `[1,12]`
 * **day of week** can take integer values in the interval `[1,7]`
 * **command** could be any non-empty `string` representing a command for shell
+
+Some `cron`-patterns will be allowed such as list, ranges, wildcards and frequency. In particular, frequency pattern has the restriction that the size of the full range must be divided by the frequency, for instance: `*/7` is not a valid frequency for the field minute due to `7` doesn't divide `60`.
 
 # 3. Implementation, deployment and usage
 The implementation of the project has been done on C++17 using a Docker sandbox with clang compiler and Makefiles to build it.
@@ -102,7 +105,7 @@ command       find -iname *.txt -print -exec grep \"hello\" {} \;
 
 **Note** that you would need to escape the double quotes in case you need some of them in the command field.
 
-# 3. Further work
+# 4. Further work
 * Add validation and test for the ranges of individual field values
 * Add support for more patterns or special characters for the fields (i.e. `#`, `?`, ...)
 * Allow multi-byte characters
