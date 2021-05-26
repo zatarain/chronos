@@ -23,10 +23,10 @@ The primary values for the implementation will be: simplicity, readability, main
 * The with of the label for the field name will be exactly `14` characters (filled with spaces)
 * After the field *day of week* all the remaining text is considered as a command
 
-# 2. Desing
+# 2. Desing details
 This section aims to briefly describe the desing of the solution, description of the data, the interactions with the user and expected behaviours.
 
-## 2.1 Workflow
+## 2.1 Basic workflow
 1. Check we are receiving an input on the command line as an argument
    1. Report an error in case we don't get it
 2. Tokenize the input from the command line
@@ -89,7 +89,7 @@ chronos "minute-expr hour-expr dayofmont-expr month-expr dayofweek-expr command"
 
 For instance for following run:
 ```
-chronos "*/15 0 1,15 * 1-5 find -iname *.txt -print -exec grep \"hello\" {} \;"
+chronos "*/15 0 1,15 * 1-5 find -iname *.txt -print -exec grep \"hello\" {} \\;"
 ```
 
 You should get following output:
